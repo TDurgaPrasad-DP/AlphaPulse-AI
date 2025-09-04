@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png+xml" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPGSURBVFiFxZddTFPXFcD/++47I8MwwwyDYTCDAoqCoCiF1iKlFVorUWrBljZGFJtYNbF23VhSmzRNa2JjbZq0MWnaJtG22pj4Y6yJTRtauzZQEbRAURZARQZk+DMMwyxcuN8f3F0GGJyURT/JM+8599xzz+/cc45/L/7X/ikm8tWrq/gQ0fT6aOgc20T34EHoqOaXh29y8a+XJzF+/LgB0Lg1p3E/Mv4hA7A1/REI/Xj9GsP/l59A7Oxs0NfXh+LiYkSGhoK2tg4UFhZBcXExDAwMQLy2FhJjY5CQkABDQ0OQnJyMX3/9NczNzUEu+f/evXtN1Gk/Ph/Mzs5GaGgosLa2NlZGX18fMjMzYePGjViwYAEKCgoQGxuLMWPGIDU1FXFxcfD29kbPnj3RsmVLdO3aFVavXo0LFy6gra0NgYGBmDZtGtLT02FiYkJsT/L+/fsxdepU/Pbbb5g/f/5k2NraGovz5s2L4cOHY+LEiRg2bBj27NmD0NBQpKfHyZk3bx5SUlIQHh6O6dOno3nz5ujfvz8mTJiAZcuWoU+fPujbt++J/e9+JDMzMzg5OaGkpARHjx7FkSNHsGfPHqxYsQJpaWlISEhAmzZtEBERgYSEBHR0dKC8vBzl5eXIyMjA2bNnMWHCBNy6dQuHDh1C586d0bRpU/To0QPFxcVYtWoVevXqhfr6evz4448z/r/55hu8/vrrGDhwIJo2bYpGjRph4sSJOH78OK5cuYKJEyfiyiuvQK9evZCQkDD1tS4uLujTp88Z/0uWLMEvv/yCvXv34pFHHkHnzp1x6dIl3LhxAwkJCZg+fTqSk5PRuXPn6NWrF/Lz87F582bk5+ejS5cuWLt2LZYvX44FCxZgxYoV+Oqrr1BaWopVq1ahR48eePXVVzF9+nScOHECL730Eq5cuYKDBw/i+PHjKC4uxoQJE1BYWIi2bduif//+mD59OtavX4+DBw+id+/eWLJkCTZt2oT8/Hzk5+ejS5cuOHr0KObNm4fdnJzYvXv3tH4fPnyIMWPGIDExETk5OdixYwdOnDiBefPmoU+fPli8eDGOHj2Kb7/9FikpKdi2bRvOnz+PY8eOITk5GVFRUSguLkbjxo3RrVs3ZGVlYe/evWhsbERERAT69u2LyZMn495778Wrr76KJk2aYMqUKThx4gTWrl2LAwcu/1Xv5+cHV1dXbN++HVlZWZg2bRp++uknPPDAAygqKsLhw4dx8eJF5ObmNlJLSgoSExMxePDgpC1ycnLg4uJidmK/8d7/j/6/+B+jQ22Gz+53MwAAAABJRU5ErkJggg==">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Stock Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'gray-900': '#0d1117',
+              'gray-800': '#161b22',
+              'gray-700': '#21262d',
+              'gray-600': '#30363d',
+              'blue-500': '#58a6ff',
+              'blue-400': '#79c0ff',
+              'green-400': '#56d364',
+              'purple-400': '#a371f7',
+            },
+            animation: {
+              'gradient-text': 'gradient-text 5s ease infinite',
+            },
+            keyframes: {
+              'gradient-text': {
+                '0%, 100%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' },
+              },
+            },
+            boxShadow: {
+              'glow-green': '0 0 15px 5px rgba(86, 211, 100, 0.3)',
+              'glow-blue': '0 0 15px 5px rgba(88, 166, 255, 0.3)',
+              'glow-purple': '0 0 15px 5px rgba(163, 113, 247, 0.3)',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after {
+          animation-delay: -1ms !important;
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          background-attachment: initial !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0s !important;
+          transition-delay: 0s !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.8.2",
+    "recharts": "https://aistudiocdn.com/recharts@^3.1.2"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-900 text-gray-300 font-sans antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
